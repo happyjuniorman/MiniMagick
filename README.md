@@ -1,0 +1,2 @@
+# MiniMagick
+lightweight image processing 
