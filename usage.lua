@@ -1,5 +1,12 @@
 -- usage
 
+--usage for png
+--local PNG = require(path.to.png_luau)
+--local miniMagick = require(path.to.miniMagick)
+
+-- Usage after you have PNG bytes (from HttpService, ModuleScript):
+-- local img = miniMagick.fromPNG(pngBytes)
+
 local miniMagick = require(path.To.miniMagick)
 
 -- Create a 3x3 red image
