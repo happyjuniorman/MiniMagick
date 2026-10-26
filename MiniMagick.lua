@@ -1,8 +1,8 @@
 
--- MiniMagick
+-- miniMagick
 -- A simple ImageMagick inspired library for roblox
 
-local MiniMagick = {}
+local miniMagick = {}
 
 export type Color = {
     R: number,
@@ -20,7 +20,7 @@ local function clamp(value: number): number
     return math.clamp(math.floor(value + 0.5), 0, 255)
 end
 
-function MiniMagick.new(width: number, height: number, color: Color?): Image
+function miniMagick.new(width: number, height: number, color: Color?): Image
     local pixels = {}
 
     for y = 1, height do
@@ -44,7 +44,7 @@ function MiniMagick.new(width: number, height: number, color: Color?): Image
     }
 end
 
-function MiniMagick.grayscale(image: Image): Image
+function miniMagick.grayscale(image: Image): Image
     for y = 1, image.Height do
         for x = 1, image.Width do
             local p = image.Pixels[y][x]
@@ -63,7 +63,7 @@ function MiniMagick.grayscale(image: Image): Image
     return image
 end
 
-function MiniMagick.invert(image: Image): Image
+function miniMagick.invert(image: Image): Image
     for y = 1, image.Height do
         for x = 1, image.Width do
             local p = image.Pixels[y][x]
@@ -77,7 +77,7 @@ function MiniMagick.invert(image: Image): Image
     return image
 end
 
-function MiniMagick.brightness(
+function miniMagick.brightness(
     image: Image,
     amount: number
 ): Image
@@ -95,7 +95,7 @@ function MiniMagick.brightness(
     return image
 end
 
-function MiniMagick.threshold(
+function miniMagick.threshold(
     image: Image,
     level: number
 ): Image
@@ -117,7 +117,7 @@ function MiniMagick.threshold(
     return image
 end
 
-function MiniMagick.flipHorizontal(image: Image): Image
+function miniMagick.flipHorizontal(image: Image): Image
     for y = 1, image.Height do
         for x = 1, math.floor(image.Width / 2) do
             local opposite = image.Width - x + 1
@@ -132,7 +132,7 @@ function MiniMagick.flipHorizontal(image: Image): Image
     return image
 end
 
-function MiniMagick.flipVertical(image: Image): Image
+function miniMagick.flipVertical(image: Image): Image
     for y = 1, math.floor(image.Height / 2) do
         local opposite = image.Height - y + 1
 
@@ -143,7 +143,7 @@ function MiniMagick.flipVertical(image: Image): Image
     return image
 end
 
-function MiniMagick.getPixel(
+function miniMagick.getPixel(
     image: Image,
     x: number,
     y: number
@@ -156,7 +156,7 @@ function MiniMagick.getPixel(
     return image.Pixels[y][x]
 end
 
-function MiniMagick.setPixel(
+function miniMagick.setPixel(
     image: Image,
     x: number,
     y: number,
@@ -176,4 +176,4 @@ function MiniMagick.setPixel(
     return true
 end
 
-return MiniMagick
+return miniMagick
