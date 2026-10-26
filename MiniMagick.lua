@@ -156,9 +156,6 @@ function miniMagick.getPixel(
     return image.Pixels[y][x]
 end
 
-local PNG = require(path.to.png_luau)
-local miniMagick = require(path.to.miniMagick)
-
 function miniMagick.fromPNG(pngBuffer: buffer): Image
     local png = PNG.decode(pngBuffer)
     local image = miniMagick.new(png.width, png.height)
@@ -176,9 +173,6 @@ function miniMagick.fromPNG(pngBuffer: buffer): Image
 
     return image
 end
-
--- Usage after you have PNG bytes (from HttpService, ModuleScript):
--- local img = miniMagick.fromPNG(pngBytes)
     
 function miniMagick.setPixel(
     image: Image,
